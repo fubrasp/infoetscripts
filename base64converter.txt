@@ -1,0 +1,11 @@
+#! /bin/bash
+
+for var in "$@"
+do 
+	ext=${var##*.}
+	filename=$(basename $var $ext)
+	#point='.'
+	txt='txt'
+	fullfilename=$filename$txt
+	base64 "$var" > "$fullfilename"
+done
